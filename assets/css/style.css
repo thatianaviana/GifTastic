@@ -44,3 +44,16 @@ p {
 h4 {
     color: white;
 }
+#gifs-appear-here div {
+    float: left;
+    border: 3px  #555555;
+    padding: 10px;
+    margin: 10px 30px;
+    text-align: center;
+ }
+ 
+ #gifs-appear-here p {
+    background-color: #006666;
+    text-transform: uppercase;
+    padding: 15px;
+ }

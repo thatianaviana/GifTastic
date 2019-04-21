@@ -41,29 +41,38 @@ $(document).ready(function () {
             //empties the div before adding more gifs
             // $('#buttons-view').empty(); if this is on - will remove all the buttons when i click on one of them
             for (var i = 0; i < results.length; i++) {
-                //var that creates an image tag
-                var reactionImage = $("<img>");
+
+                //creating a div with the class item
+                var gifDiv = $('<div class="item">');
+                //storing the result items rating        
+                var rating = results[i].rating;
+                //creating an element to have the rating displayed
+                var p = $('<p>').text("Rating: " + rating);
+                //creating a image tag
+                var reactionImage = $('<img>');
+
                 //adding attribute and setting values
                 reactionImage.attr("src", results[i].images.fixed_height_still.url);
                 reactionImage.attr("data-animate", results[i].images.fixed_height.url);
                 reactionImage.attr("data-still", results[i].images.fixed_height_still.url);
                 reactionImage.attr("data-state", "still");
                 reactionImage.addClass("gif");
-                //this will make the gif appear on HTML page
-                $('#gifs-appear-here').prepend(reactionImage);
-                reactionImage.on('click', playGif);
+                // reactionImage.on('click', playGif);
 
-                // Pulling ratings for each reaction
-                var ratings = results[i].rating;
-                //the code below grabs the rating information from API and prepends to the HTML
-                var displayRating = $('<p>').text("Rating: " + ratings);
-                $('#gifs-appear-here').prepend(displayRating);
+
+                gifDiv.append(p);
+                gifDiv.append(reactionImage);
+                // $('#gifs-appear-here').prepend(p);
+                $('#gifs-appear-here').prepend(gifDiv);
+
             }
-
         });
 
+    });
+
         //function to stop and animate gifs
-        function playGif() {
+        $(document).on('click', '.gif', function () {
+
             var state = $(this).attr('data-state');
             // console.log(state);
             if (state == 'still') {
@@ -74,11 +83,8 @@ $(document).ready(function () {
                 $(this).attr('data-state', 'still');
             }
 
-        }
+        });
 
-
-
-    });
     //on submit click, this will will grab the input and push it to the reactions array of buttons
     $("#add-reaction").on("click", function (event) {
         // event.preventDefault() prevents the form from trying to submit itself.
@@ -94,12 +100,3 @@ $(document).ready(function () {
 
 
 });
-
-
-
-                // var animatedGif = results[i].images.fixed_height.url;
-                // var stillGif = results[i].images.fixed_height_still.url;
-                // var gifImage = $('<img>').attr("src", stillGif).attr('data-animate', animatedGif).attr('data-still', stillGif);
-                // gifImage.attr('data-state', 'still');
-                // $('#gifs-appear-here').prepend(gifImage);
-                // gifImage.on('click', playGif);
