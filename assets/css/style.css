@@ -1,0 +1,46 @@
+body {
+    background-color: #b4abab;
+    margin: 10px;
+    background-image: url("https://i.pinimg.com/originals/fe/c3/d4/fec3d41a41d5b15032c7da7db5ffa5a5.jpg");
+    background-size: 100%;
+    width: 0 auto;
+    height: 100px;
+}
+
+button {
+    background-color: #e3b9d8;
+    margin-bottom: 20px;
+    margin: 3px;
+    height: 40px;
+    
+}
+#buttons-view{
+    text-align: center;
+}
+#add-giphy {
+    background-color: #458b74;
+}
+h1 {
+    text-align: center;
+    padding-bottom: 30px;
+    padding: 20px;
+    border: 3px solid #555555;
+    margin: 20px;
+    height: 100px;
+    color: white;
+    background-color: #555555;
+}
+form {
+    text-align: center;
+}
+#add-reaction {
+   
+}
+
+p {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
